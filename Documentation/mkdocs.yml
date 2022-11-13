@@ -23,7 +23,7 @@ theme:
   features:
     - header.autohide
 
-  # Color palette
+  # Color palettes
   palette:
     primary: black
     secondary: blue
