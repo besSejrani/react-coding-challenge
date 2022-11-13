@@ -1,0 +1,61 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+html {
+	scroll-behavior: smooth;
+	height: 100%;
+}
+
+body {
+	height: 100%;
+	position: relative;
+	font-family: "Roboto, sans-serif";
+}
+
+#root {
+	height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+/* ======================================================================================================== */
+/*                                                   Scrollbar                                              */
+/* ======================================================================================================== */
+
+::-webkit-scrollbar {
+	width: 10px;
+	height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+	border-radius: 10px !important;
+	background-color: rgb(230, 230, 230);
+	box-shadow: rgb(0 0 0 / 30%) 0px 0px 6px inset;
+}
+
+/* ======================================================================================================== */
+/*                                                   Skip Content                                           */
+/* ======================================================================================================== */
+
+#skiplink a {
+	position: absolute;
+	left: -10000px;
+	top: auto;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+}
+
+#skiplink a:focus {
+	position: static;
+	width: auto;
+	height: auto;
+}
+
+a {
+	text-decoration: none;
+}
