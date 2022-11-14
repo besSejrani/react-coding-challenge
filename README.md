@@ -15,7 +15,7 @@
 </a>
 
 <a>
-    <img src="https://img.shields.io/badge/Mkdocs-Documentation-lightgrey" alt="Aspaara Logo">
+    <img src="https://img.shields.io/badge/Documentation-Mkdocs-lightgrey" alt="Aspaara Logo">
 </a>
 
 </div>
