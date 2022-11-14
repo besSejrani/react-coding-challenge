@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // Pages
 import Dashboard from "@Pages/Dashboard";
 import Planning from "@Pages/Planning";
+import PlanningDetails from "@Pages/PlanningDetails";
 import NotFound from "@Pages/NotFound";
 
 // Layout
@@ -22,6 +23,7 @@ const App = () => (
 			<Routes>
 				<Route path="/" element={<Dashboard />} />
 				<Route path="/planning" element={<Planning />} />
+				<Route path="/planning/:id" element={<PlanningDetails />} />
 				<Route path="*" element={<NotFound />} />
 			</Routes>
 		</Layout>

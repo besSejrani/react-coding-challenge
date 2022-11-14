@@ -121,12 +121,9 @@ const columns = [
 		field: "action",
 		headerName: "Action",
 		flex: 0.6,
-		renderCell: (params: GridCellParams) => (
-			<DataGridAction
-				// handleClickOpen={() => handleClickOpen(params)}
-				handleClickOpen={() => console.log("hi")}
-			/>
-		),
+		renderCell: (params: GridCellParams) => {
+			return <DataGridAction path={params.row.id} />;
+		},
 	},
 ];
 
@@ -177,7 +174,7 @@ const Planning = () => {
 
 	return (
 		<Box style={{ height: 680, width: "100%" }}>
-			<DataGridInfoAction title="Planning" path="/" action="hello" />
+			<DataGridInfoAction title="Planning" />
 
 			<DataGrid
 				columns={columns}

@@ -23,8 +23,6 @@ import { IAppState } from "@Redux/rootReducer";
 
 interface DataGridInfoActionType {
 	title: string;
-	action?: string;
-	path?: string;
 }
 
 const itemsPerPage = [
@@ -65,7 +63,7 @@ const sort = [
 	},
 ];
 
-const DataGridInfoAction: React.FC<DataGridInfoActionType> = ({ title, action, path }) => {
+const DataGridInfoAction: React.FC<DataGridInfoActionType> = ({ title }) => {
 	// Styling
 	const classes = useStyles();
 
@@ -81,23 +79,18 @@ const DataGridInfoAction: React.FC<DataGridInfoActionType> = ({ title, action, p
 	//          State
 	// ==============================
 
-	const [pages, setPages] = React.useState<string>(pageFilterState);
-	const [sortBy, setSortBy] = React.useState<string>(sortByFilterState);
-
 	// ==============================
 	//          Events
 	// ==============================
 
 	const handleSort = async (event: React.ChangeEvent<HTMLInputElement>) => {
-		await setSortBy(event.target.value);
-		await dispatch(sortByFilter(sortBy));
-		await navigate(`/planning?page=${pages}&sort=${sortBy}`);
+		await dispatch(sortByFilter(event.target.value));
+		await navigate(`/planning?page=${pageFilterState}&sort=${sortByFilterState}`);
 	};
 
 	const handlePages = async (event: React.ChangeEvent<HTMLInputElement>) => {
-		await setPages(event.target.value);
-		await dispatch(pageFilter(pages));
-		await navigate(`/planning?page=${pages}&sort=${sortBy}`);
+		await dispatch(pageFilter(event.target.value));
+		await navigate(`/planning?page=${pageFilterState}&sort=${sortByFilterState}`);
 	};
 
 	return (
@@ -108,8 +101,8 @@ const DataGridInfoAction: React.FC<DataGridInfoActionType> = ({ title, action, p
 				</Typography>
 
 				<Breadcrumbs aria-label="breadcrumb">
-					<MaterialLink href="/">Administration</MaterialLink>
-					<MaterialLink color="inherit" href="/components/breadcrumbs/" aria-current="page">
+					<MaterialLink>Management</MaterialLink>
+					<MaterialLink color="inherit" aria-current="page">
 						{title}
 					</MaterialLink>
 				</Breadcrumbs>
@@ -120,7 +113,7 @@ const DataGridInfoAction: React.FC<DataGridInfoActionType> = ({ title, action, p
 					id="outlined-select-currency"
 					select
 					label="Sort by"
-					value={sortBy}
+					value={sortByFilterState}
 					onChange={handleSort}
 					sx={{ width: "10rem", margin: "0rem 1rem 0rem 0rem" }}
 				>
@@ -135,7 +128,7 @@ const DataGridInfoAction: React.FC<DataGridInfoActionType> = ({ title, action, p
 					id="outlined-select-currency"
 					select
 					label="Items per page"
-					value={pages}
+					value={pageFilterState}
 					onChange={handlePages}
 					sx={{ width: "10rem" }}
 				>

@@ -1,7 +1,7 @@
 import React from "react";
 
-// Next
-// import { useRouter } from "next/router";
+// Router
+import { useNavigate } from "react-router-dom";
 
 // Material-UI
 import Box from "@mui/material/Box";
@@ -14,13 +14,14 @@ import ModifyIcon from "@mui/icons-material/Create";
 // ========================================================================================================
 
 interface DataGridActionType {
-	handleClickOpen: () => void;
+	handleClickOpen?: () => void;
 	path?: string;
 	deleteOnly?: boolean;
 }
 
 const DataGridAction: React.FC<DataGridActionType> = ({ path, handleClickOpen, deleteOnly = false }) => {
-	// const router = useRouter();
+	// Router
+	const navigate = useNavigate();
 
 	return (
 		<>
@@ -32,11 +33,7 @@ const DataGridAction: React.FC<DataGridActionType> = ({ path, handleClickOpen, d
 				</Box>
 			) : (
 				<Box>
-					<IconButton
-						edge="start"
-						// onClick={() => router.push(`${path}`)}
-						size="large"
-					>
+					<IconButton edge="start" onClick={() => navigate(`${path}`)} size="large">
 						<ModifyIcon />
 					</IconButton>
 

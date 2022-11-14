@@ -24,7 +24,7 @@ export default (state: UiState = initialState, action: Action): UiState => {
 
 	switch (type) {
 		case PlanningType.PAGE_FILTER:
-			return { ...state, pageFilter: payload };
+			return { ...state, ...{ pageFilter: payload } };
 
 		case PlanningType.SORT_BY_FILTER:
 			return { ...state, sortByFilter: payload };
