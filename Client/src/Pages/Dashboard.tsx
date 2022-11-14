@@ -14,7 +14,7 @@ const Dashboard = () => {
 		getData();
 	}, []);
 
-	return <div>Hello world</div>;
+	return <div>Hello worldsss</div>;
 };
 
 export default Dashboard;

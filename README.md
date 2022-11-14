@@ -19,3 +19,7 @@
 </a>
 
 </div>
+
+# Technical Documentation
+
+[Github Pages](https://bessejrani.github.io/react-coding-challenge/)

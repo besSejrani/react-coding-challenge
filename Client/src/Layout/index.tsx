@@ -18,7 +18,7 @@ const Layout: React.FC<ILayout> = ({ children }) => {
 	return (
 		<>
 			<Header />
-			{children}
+			<div style={{ padding: "50px 20px 0px 260px" }}>{children}</div>
 			<SidebarAdmin />
 			{/* <SideDrawer /> */}
 		</>

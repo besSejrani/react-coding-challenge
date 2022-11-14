@@ -62,7 +62,7 @@ const Header = () => {
 
 						<Box style={{ width: "6rem", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
 							<ButtonHeaderAction action={changeDarkMode}>
-								{isDarkTheme ? <BsSun style={{ fontSize: "18px" }} /> : <IoMoonOutline style={{ fontSize: "18px" }} />}
+								{isDarkTheme ? <IoMoonOutline style={{ fontSize: "18px" }} /> : <BsSun style={{ fontSize: "18px" }} />}
 							</ButtonHeaderAction>
 
 							<IconButton

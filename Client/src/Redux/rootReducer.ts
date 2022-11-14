@@ -6,17 +6,19 @@ import storage from "redux-persist/lib/storage";
 
 // Reducer
 import uiReducer from "./ui/uiReducer";
+import planningReducer from "./planning/planningReducer";
 
 // ========================================================================================================
 
 const persistConfig = {
-  key: "planning",
-  storage,
-  whitelist: ["ui"],
+	key: "planning",
+	storage,
+	whitelist: ["ui"],
 };
 
 const rootReducer = combineReducers({
-  ui: uiReducer,
+	ui: uiReducer,
+	planning: planningReducer,
 });
 
 // ========================================================================================================

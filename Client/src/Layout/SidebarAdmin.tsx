@@ -43,7 +43,7 @@ const SidebarAdmin = () => (
 			<Toolbar />
 
 			<List subheader={<ListSubheader>Dashboard</ListSubheader>} sx={{ bgcolor: "background.paper" }}>
-				<Link to="/dashboard">
+				<Link to="/">
 					<ListItem key="statistics" disablePadding>
 						<ListItemButton>
 							<ListItemIcon>
@@ -62,22 +62,6 @@ const SidebarAdmin = () => (
 			</List>
 
 			<List subheader={<ListSubheader>Management</ListSubheader>} sx={{ bgcolor: "background.paper" }}>
-				<Link to="/users">
-					<ListItem key="users" disablePadding>
-						<ListItemButton>
-							<ListItemIcon>
-								<PeopleIcon />
-							</ListItemIcon>
-							<ListItemText
-								primary={
-									<Typography component="span" variant="body1" color="text.primary">
-										Users
-									</Typography>
-								}
-							/>
-						</ListItemButton>
-					</ListItem>
-				</Link>
 				<Link to="/planning">
 					<ListItem key="planning" disablePadding>
 						<ListItemButton>

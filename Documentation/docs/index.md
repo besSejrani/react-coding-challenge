@@ -6,7 +6,7 @@ At aspaara a squad of superheroes work on giving superpowers to planning teams.
 Through our product dashboard we give insights into data – a true super-vision
 superpower. Join forces with us and build a dashboard of the future!
 
-![aspaara superhero](../../images/aspaara_superhero.png)
+![aspaara superhero](./images/aspaara_superhero.png)
 
 ## Goal
 

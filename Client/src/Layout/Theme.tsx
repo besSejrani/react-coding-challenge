@@ -73,7 +73,7 @@ export const Theme: React.FC<ITheme> = ({ children }) => {
 	// Redux
 	const isDarkTheme = useSelector((state: IAppState) => state.ui.isDarkTheme);
 
-	const theme = createTheme(getDesignTokens(isDarkTheme ? "light" : "dark"));
+	const theme = createTheme(getDesignTokens(isDarkTheme ? "dark" : "light"));
 	return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 };
 

@@ -1,10 +1,10 @@
-import { UiType } from "./uiTypes";
+import { PlanningType } from "./planningTypes";
 
 // ========================================================================================================
 
 interface UiState {
-	isSideDrawerOpen: boolean;
-	isDarkTheme: boolean;
+	pageFilter: string;
+	sortByFilter: string;
 }
 
 interface Action {
@@ -13,8 +13,8 @@ interface Action {
 }
 
 const initialState = {
-	isSideDrawerOpen: false,
-	isDarkTheme: false,
+	pageFilter: "25",
+	sortByFilter: "No Sorting",
 };
 
 // ========================================================================================================
@@ -23,11 +23,11 @@ export default (state: UiState = initialState, action: Action): UiState => {
 	const { type, payload } = action;
 
 	switch (type) {
-		case UiType.TOGGLE_SIDE_DRAWER:
-			return { ...state, isSideDrawerOpen: !state.isSideDrawerOpen };
+		case PlanningType.PAGE_FILTER:
+			return { ...state, pageFilter: payload };
 
-		case UiType.TOGGLE_THEME:
-			return { ...state, isDarkTheme: !state.isDarkTheme };
+		case PlanningType.SORT_BY_FILTER:
+			return { ...state, sortByFilter: payload };
 
 		default:
 			return state;

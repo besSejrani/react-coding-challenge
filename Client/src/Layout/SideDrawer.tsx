@@ -43,7 +43,7 @@ import { IAppState } from "@Redux/rootReducer";
 
 type Anchor = "left";
 
-const SideDrawer: React.FC<any> = () => {
+const SideDrawer: React.FC = () => {
 	const classes = useStyles();
 	const [installable, setInstallable] = useState(false);
 
@@ -202,6 +202,7 @@ interface MyTheme {
 const useStyles = makeStyles((theme: MyTheme) => ({
 	list: {
 		width: 250,
+		margin: "0px 250px 0px 0px",
 	},
 	formControl: {
 		margin: theme.spacing(1),
