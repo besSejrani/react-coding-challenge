@@ -3,7 +3,6 @@ import React from "react";
 // Layout
 import Header from "./Header";
 import SidebarAdmin from "./SidebarAdmin";
-import SideDrawer from "./SideDrawer";
 
 // Theme
 import { withTheme as WithTheme } from "./Theme";
@@ -20,7 +19,6 @@ const Layout: React.FC<ILayout> = ({ children }) => {
 			<Header />
 			<div style={{ padding: "50px 20px 0px 260px" }}>{children}</div>
 			<SidebarAdmin />
-			{/* <SideDrawer /> */}
 		</>
 	);
 };

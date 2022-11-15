@@ -17,10 +17,6 @@ export default async () => {
     connection = process.env.MONGO_DEVELOPMENT;
   }
 
-  if (process.env.NODE_ENV2 === "test") {
-    connection = process.env.MONGO_TEST;
-  }
-
   try {
     await mongoose.connect(connection || process.env.MONGO_ATLAS!);
 

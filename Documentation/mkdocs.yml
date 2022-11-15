@@ -35,7 +35,8 @@ markdown_extensions:
   - pymdownx.superfences
   - def_list
   - footnotes
-  - pymdownx.tabbed
+  - pymdownx.tabbed:
+      alternate_style: true
   - admonition
   - pymdownx.tasklist:
       custom_checkbox: true

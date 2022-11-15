@@ -7,15 +7,6 @@ import { useParams } from "react-router-dom";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
-import Breadcrumbs from "@mui/material/Breadcrumbs";
-import Link from "@mui/material/Link";
-import Typography from "@mui/material/Typography";
-import Tab from "@mui/material/Tab";
-
-// Material Lab
-import TabContext from "@mui/lab/TabContext";
-import TabList from "@mui/lab/TabList";
-import TabPanel from "@mui/lab/TabPanel";
 
 // Material Styles
 import { makeStyles } from "@mui/styles";
@@ -100,12 +91,6 @@ const PlanningDetails = () => {
 		});
 		setDataResult(data);
 	};
-
-	const handleChange = (event: React.ChangeEvent<{}>, newValue: string) => {
-		setValue(newValue);
-	};
-
-	console.log("data", dataResult);
 
 	return (
 		<Container maxWidth="xl">
