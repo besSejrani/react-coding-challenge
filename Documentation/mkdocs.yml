@@ -28,7 +28,7 @@ theme:
     primary: black
     secondary: blue
 
-# Extensions
+# Extensionss
 markdown_extensions:
   - attr_list
   - pymdownx.highlight
