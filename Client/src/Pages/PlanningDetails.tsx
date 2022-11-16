@@ -74,11 +74,11 @@ const PlanningDetails = () => {
 	//           State
 	// ==============================
 	const [dataResult, setDataResult] = useState<DataResult>(initialState);
-	const [value, setValue] = React.useState("1");
 
 	// ==============================
 	//          Events
 	// ==============================
+
 	useEffect(() => {
 		getData();
 	}, []);

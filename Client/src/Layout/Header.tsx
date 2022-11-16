@@ -60,20 +60,10 @@ const Header = () => {
 							<SkipContent />
 						</Box>
 
-						<Box style={{ width: "6rem", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+						<Box>
 							<ButtonHeaderAction action={changeDarkMode}>
 								{isDarkTheme ? <IoMoonOutline style={{ fontSize: "18px" }} /> : <BsSun style={{ fontSize: "18px" }} />}
 							</ButtonHeaderAction>
-
-							<IconButton
-								edge="start"
-								className={classes.menuButton}
-								color="inherit"
-								aria-label="menu"
-								onClick={() => dispatch(toggleSideDrawer())}
-							>
-								<MenuIcon />
-							</IconButton>
 						</Box>
 					</Box>
 				</Toolbar>

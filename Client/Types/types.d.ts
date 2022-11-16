@@ -29,3 +29,21 @@ export declare type DataResult = {
 	__v: number;
 	_id: string;
 };
+
+type Industry = {
+	_id: string;
+	total: number;
+};
+
+type Client = {
+	_id: string;
+	total: number;
+};
+
+type Dasboard = {
+	industry: Industry[];
+	client: Client[];
+	totalPlannings: number;
+	totalHours: number;
+	openPositions: number;
+};

@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 // Material-UI
 import Box from "@mui/material/Box";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
 import MaterialLink from "@mui/material/Link";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
 
@@ -16,28 +15,51 @@ import Area from "@Components/Charts/Area/Area";
 import Pie from "@Components/Charts/Pie/Pie";
 import HorizontalBar from "@Components/Charts/HorizontalBar/HorizontalBar";
 
+// HTTP
+import axios from "axios";
+
+// Types
+import { Dasboard } from "@Types/types";
+
 // ========================================================================================================
+
+const initialState = {
+	industry: [
+		{
+			_id: "",
+			total: 0,
+		},
+	],
+	client: [
+		{
+			_id: "",
+			total: 0,
+		},
+	],
+	totalPlannings: 0,
+	totalHours: 0,
+	openPositions: 0,
+};
 
 const Dashboard = () => {
 	const classes = useStyles();
 
 	// ==============================
-	//          State
+	//           State
 	// ==============================
-	const [open, setOpen] = useState(false);
-	const [product, setProduct] = useState(null);
+	const [dataResult, setDataResult] = useState<Dasboard>(initialState);
 
 	// ==============================
 	//          Events
 	// ==============================
-	const handleClickOpen = (params) => {
-		setOpen(true);
 
-		setProduct(params);
-	};
+	useEffect(() => {
+		getData();
+	}, []);
 
-	const handleClose = () => {
-		setOpen(false);
+	const getData = async () => {
+		const { data } = await axios.get(`${process.env.REACT_APP_SERVER}/api/v1/dashboard`);
+		setDataResult(data);
 	};
 
 	return (
@@ -58,59 +80,49 @@ const Dashboard = () => {
 					</Box>
 				</Box>
 
-				<Paper className={classes.dataGroup}>
-					<Box className={classes.data}>
-						<Typography variant="h5">Fake</Typography>
-					</Box>
-					<Box className={classes.data} style={{ borderLeft: "1px solid #d4d4d4", borderRight: "1px solid #d4d4d4" }}>
-						<Typography variant="h5">Fake</Typography>
-					</Box>
-					<Box className={classes.data}>
-						<Typography variant="h5">Fake</Typography>
-					</Box>
-				</Paper>
-
-				<Box className={classes.chartGroup}>
-					<Paper className={classes.chartLeft}>
-						<Box className={classes.chart}>
-							<Box style={{ display: "flex", flexDirection: "column", alignItems: "start" }}>
-								<Typography variant="h5" style={{ margin: 20 }}>
-									Fake
-								</Typography>
-								<Area />
-							</Box>
+				<Box className={classes.dataGroup}>
+					<Paper>
+						<Box className={classes.data}>
+							<Typography variant="h5">{dataResult?.totalPlannings} Plannings</Typography>
 						</Box>
 					</Paper>
-					<Paper className={classes.chartRight}>
-						<Box className={classes.chart}>
-							<Box style={{ display: "flex", flexDirection: "column", alignItems: "start", width: "100%" }}>
-								<Typography variant="h5" style={{ margin: 20 }}>
-									Fake
-								</Typography>
-								<Pie />
-							</Box>
+					<Paper>
+						<Box className={classes.data}>
+							<Typography variant="h5">{dataResult?.totalHours} Hours</Typography>
+						</Box>
+					</Paper>
+					<Paper>
+						<Box className={classes.data}>
+							<Typography variant="h5">{dataResult?.openPositions} Open Positions</Typography>
 						</Box>
 					</Paper>
 				</Box>
 
 				<Box className={classes.chartGroup}>
-					<Paper className={classes.chartLeft}>
+					<Paper className={classes.chartRight}>
 						<Box className={classes.chart}>
-							<Box style={{ display: "flex", flexDirection: "column", alignItems: "start" }}>
+							<Box style={{ display: "flex", flexDirection: "column", alignItems: "start", width: "100%" }}>
 								<Typography variant="h5" style={{ margin: 20 }}>
-									Fake
+									Top 10 Clients
 								</Typography>
-								<HorizontalBar />
+
+								<Box style={{ display: "flex", justifyContent: "center", alignItems: "center", width: "100%" }}>
+									<Pie fetchedData={dataResult?.client} />
+								</Box>
 							</Box>
 						</Box>
 					</Paper>
+
 					<Paper className={classes.chartRight}>
 						<Box className={classes.chart}>
-							<Box style={{ display: "flex", flexDirection: "column", alignItems: "start" }}>
+							<Box style={{ display: "flex", flexDirection: "column", alignItems: "start", width: "100%" }}>
 								<Typography variant="h5" style={{ margin: 20 }}>
-									Fake
+									Top 5 Industries
 								</Typography>
-								<HorizontalBar />
+
+								<Box style={{ display: "flex", justifyContent: "center", alignItems: "center", width: "100%" }}>
+									<Pie fetchedData={dataResult?.industry} />
+								</Box>
 							</Box>
 						</Box>
 					</Paper>
@@ -139,6 +151,7 @@ const useStyles = makeStyles(() => ({
 		display: "grid",
 		gridTemplateColumns: "1fr 1fr 1fr",
 		margin: "20px 0px",
+		gridColumnGap: "2rem",
 		borderRadius: 20,
 	},
 
